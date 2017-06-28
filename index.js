@@ -9006,8 +9006,21 @@ let issuesWithUpdatedApiUrl = issues.map(issue => Object.assign({}, issue, {url:
 //   return Object.assign({}, issue, {url: issue.url.replace('api.github.com', 'api-v2.github.com')})});
 
 let commentCountAcrossIssues = issues.map(issue => issue.comments_count).reduce((total, count) => total + count, 0)
+// let commentCountAcrossIssues = issues.map(function(issue) {
+//   return issue.comments_count}).reduce(function(total, count) {
+//     return total + count
+// })
+
+
 
 let openIssues = issues.filter(issue => issue.state === "open")
+
+//  let openIssues = issues.reduce(function(array, currentValue) {
+//    if (currentValue.state === 'open') {
+//      array.push(currentValue)
+//    }
+//    return array
+//  }, [])
 
 let nonAutomaticIssues = issues.filter(issue => !issue.body.includes('automatically created by learn.co'))
 
